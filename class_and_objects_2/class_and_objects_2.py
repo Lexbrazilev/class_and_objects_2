@@ -33,10 +33,15 @@ class Turtle(object):
             self.s_shag -= 1
             
     def count_moves(self, x2, y2):
-        return print(f"Клеток до места по X: {self.x_poz - x2} по Y: {self.y_poz - y2}")
+        z1 = abs(x2-self.x_poz)
+        z2 = abs(y2-self.y_poz)
+        zz1 = (z1 + self.s_shag - 1) // self.s_shag
+        zz2 = (z2 + self.s_shag - 1) // self.s_shag
+        z = (zz1 + zz2)
+        return z
 
 
-turtle1 = Turtle(10, 10, 3)
+turtle1 = Turtle(10, 10, 2)
 
 turtle1.go_up()
 turtle1.go_down()
@@ -44,6 +49,6 @@ turtle1.go_left()
 turtle1.go_right()
 turtle1.evolve()
 turtle1.degrade()
-turtle1.count_moves(3, 4)
+print(f"Минимальное количество ходов {turtle1.count_moves(3, 4)}")
 
 
